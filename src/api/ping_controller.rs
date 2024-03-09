@@ -1,15 +1,15 @@
-use actix_web::{HttpResponse, Responder, get};
-use serde_json::json;
+use actix_web::{get, HttpResponse, Responder};
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 
 fn s_ping() -> &'static str {
     "pong"
 }
 
-#[derive(Serialize,Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct Ping {
     pong: &'static str,
-    ms: f64
+    ms: f64,
 }
 
 #[get("/")]

@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize,Deserialize)]
+#[derive(Serialize, Deserialize)]
 pub struct User {
     id: i32,
     first_name: String,
@@ -10,5 +10,5 @@ pub struct User {
     password: String,
     first_login_at: String,
     created_at: String,
-    updated_at: String
+    updated_at: String,
 }
