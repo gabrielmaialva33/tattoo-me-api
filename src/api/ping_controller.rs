@@ -18,10 +18,7 @@ pub async fn ping() -> impl Responder {
     let pong = s_ping();
 
     let ms = start.elapsed().as_millis();
-    let response = json!(Ping {
-        pong,
-        ms: ms as f64
-    });
+    let response = json!(Ping { pong, ms: ms as f64 });
 
     HttpResponse::Ok().json(response)
 }
