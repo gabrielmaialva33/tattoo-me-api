@@ -1,17 +1,15 @@
-use std::env;
-
 use actix_web::{App, HttpServer};
+use log::info;
 
 mod api;
 mod models;
+mod schema;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    dotenvy::dotenv().expect("Failed to read .env file");
+    info!("Starting server...");
 
-    for (key, value) in env::vars() {
-        println!("{key}: {value}");
-    }
+    dotenvy::dotenv().expect("Failed to read .env file");
 
     HttpServer::new(|| {
         App::new().service(api::ping_controller::ping)
